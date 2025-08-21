@@ -1,4 +1,4 @@
-# Exam-Management-System
+## Exam-Management-System
 A simple and practical online **exam management system** built with **PHP** and **MySQL**.
 It provides a student interface for taking exams and a supervisor dashboard for managing questions and settings efficiently.
 ---
@@ -20,14 +20,12 @@ It provides a student interface for taking exams and a supervisor dashboard for 
     - Set the number of questions .
     - View all questions and delete unwanted ones.
 ---
-
 ## Technologies Used
 
 **Frontend:** HTML, CSS, JavaScript
-
 **Backend:** PHP
+**Database:** MyAQL
 
-**Database:** MySQL
 ---
 
 ## Installation
