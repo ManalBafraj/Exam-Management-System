@@ -1,0 +1,201 @@
+/* ========== styleSign.css ========== */
+/* Reset بسيط + متغيرات ألوان */
+* { box-sizing: border-box; }
+:root{
+  --bg-blue: #cfe8ff;         /* خلفية أزرق فاتح */
+  --bg-mauve: #efe6ff;        /* موف فاتح */
+  --primary: #2563eb;         /* أزرق أساسي للزر */
+  --primary-600:#1d4ed8;
+  --text: #1f2937;            /* رمادي غامق للنص */
+  --muted:#6b7280;
+  --card-bg: rgba(255,255,255,.92);
+  --card-border: rgba(0,0,0,.06);
+  --danger:#ef4444;           /* للأخطاء */
+  --shadow: 0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.05);
+}
+
+/* دعم RTL تلقائي لصفحة register.php */
+html[lang="ar"] body { direction: rtl; }
+
+/* خلفية متدرجة + تمويه (blurred blobs) */
+body{
+  margin:0;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  padding:24px;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background: linear-gradient(135deg, var(--bg-blue), var(--bg-mauve));
+  position: relative;
+  overflow-x:hidden;
+}
+
+/* Blurred gradient shapes */
+body::before,
+body::after{
+  content:"";
+  position: fixed;
+  inset:-20%;
+  pointer-events:none;
+  z-index:-1;
+  filter: blur(70px);
+  opacity:.75;
+  animation: float 16s ease-in-out infinite alternate;
+}
+body::before{
+  background:
+    radial-gradient(40% 35% at 20% 15%, rgba(37,99,235,.42), transparent 60%),
+    radial-gradient(35% 30% at 85% 25%, rgba(124,58,237,.32), transparent 60%);
+}
+body::after{
+  background:
+    radial-gradient(40% 35% at 25% 85%, rgba(124,58,237,.28), transparent 60%),
+    radial-gradient(35% 30% at 70% 70%, rgba(37,99,235,.25), transparent 60%);
+  animation-duration: 22s;
+}
+@keyframes float{
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(2%, -3%, 0) scale(1.02); }
+}
+
+/* العنوان */
+h2{
+  margin:0 0 8px;
+  font-size: clamp(22px, 2.6vw, 28px);
+  letter-spacing:.2px;
+  text-align:center;
+}
+
+/* الكارد = الفورم نفسه */
+form{
+  width: min(100%, 440px);
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border:1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 22px 20px;
+  box-shadow: var(--shadow);
+}
+
+/* حق النص أسفل/أعلى */
+body > p, .meta{
+  margin: 8px 0 0;
+  text-align:center;
+  font-size: 14px;
+  color: var(--muted);
+}
+a{
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover{ text-decoration: underline; }
+
+/* عناصر الفورم */
+label{
+  display:block;
+  font-size: 14px;
+  margin: 10px 2px 6px;
+  color: #111827;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  background:#fff;
+  color:#111827;
+  font-size:15px;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  outline: none;
+}
+input::placeholder{ color:#9ca3af; }
+input:focus, select:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+}
+select{
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #9ca3af 50%),
+    linear-gradient(135deg, #9ca3af 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(50% - 3px), calc(100% - 13px) calc(50% + 3px);
+  background-size: 7px 7px, 7px 7px;
+  background-repeat: no-repeat;
+}
+
+/* زر الإرسال */
+button[type="submit"]{
+  width:100%;
+  margin-top: 14px;
+  padding: 12px 16px;
+  border:none;
+  border-radius: 12px;
+  cursor:pointer;
+  font-weight: 700;
+  font-size: 15px;
+  color:#fff;
+  background-image: linear-gradient(90deg, var(--primary), #7c3aed);
+  transition: transform .08s ease, filter .18s ease, box-shadow .18s ease;
+  box-shadow: 0 8px 20px rgba(37,99,235,.25);
+}
+button[type="submit"]:hover{ filter: brightness(1.05); }
+button[type="submit"]:active{ transform: translateY(1px) scale(.995); }
+
+/* رسائل الخطأ */
+/* لو بقي كود الـ inline style الأحمر من الـ PHP */
+p[style*="color:red"]{
+  color: var(--danger) !important;
+  background: rgba(239,68,68,.08);
+  border: 1px solid rgba(239,68,68,.25);
+  padding:10px 12px;
+  border-radius: 12px;
+  width:min(100%, 440px);
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(239,68,68,.08);
+  margin: 6px 0;
+}
+/* ولو حبيتي تغيريه إلى class="error" لاحقًا */
+.error{
+  color: var(--danger);
+  background: rgba(239,68,68,.08);
+  border: 1px solid rgba(239,68,68,.25);
+  padding:10px 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* تفاصيل صغيرة للجودة */
+input, select, button{ -webkit-tap-highlight-color: transparent; }
+::selection{ background: rgba(37,99,235,.18); }
+
+/* Responsive */
+@media (max-width: 520px){
+  body{ padding: 18px; gap:12px; }
+  form{ padding: 18px 16px; border-radius: 16px; }
+}
+@media (max-width: 360px){
+  label{ font-size: 13px; }
+  input[type="text"], input[type="email"], input[type="password"], select{ font-size: 14px; padding: 11px 12px; }
+  button[type="submit"]{ font-size: 14px; padding: 11px 14px; }
+}
+
+/* تحسين لمس للأجهزة اللوحية والموبايل */
+@media (pointer:coarse){
+  input, select, button{ min-height: 44px; }
+}
+
+/* محاذاة نصوص حسب اللغة (اختياري) */
+html[lang="ar"] h2,
+html[lang="ar"] label{ text-align: right; }
+html[lang="en"] h2,
+html[lang="en"] label{ text-align: left; }
+/* ========== /styleSign.css ========== */

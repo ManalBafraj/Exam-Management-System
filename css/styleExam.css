@@ -1,0 +1,143 @@
+/* ========== styleExam.css ========== */
+*{box-sizing:border-box}
+:root{
+  --bg-blue:#cfe8ff;          /* خلفية ناعمة */
+  --bg-mauve:#efe6ff;
+  --primary:#2563eb;          /* أزرار أساسية */
+  --primary-600:#1d4ed8;
+  --accent:#7c3aed;           /* موف */
+  --amber:#f59e0b;            /* أصفر لنقطة الإجابة */
+  --text:#111827;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --success:#16a34a;
+  --danger:#ef4444;
+  --soft-danger:#ffe8ea;
+}
+
+html,body{height:100%}
+body{
+  text-align: left;
+  direction: ltr;
+  font-family: "Tajawal", "Cairo", Arial, sans-serif;
+  color:var(--text);
+  margin:0; background:
+  radial-gradient(1200px 600px at 100% -100px, var(--bg-mauve), transparent 55%),
+  radial-gradient(1200px 600px at -100px 100%, var(--bg-blue), transparent 55%),
+  #f7fbff;
+}
+
+
+.container{
+  max-width:1100px; margin:28px auto; padding:0 16px;
+  text-align: left;
+ direction: ltr;
+}
+
+.topbar{
+  display:flex; gap:16px; align-items:center; justify-content:space-between; margin-bottom:16px;
+}
+
+.profile-menu button{
+  background:var(--card); border:1px solid var(--border); border-radius:12px; padding:10px 14px; cursor:pointer;
+}
+.profile-menu .dropdown{
+  display:none; position:absolute; right:0; top:calc(100% + 6px);
+  background:var(--card); border:1px solid var(--border);
+  border-radius:12px; min-width:180px; box-shadow:0 20px 40px rgba(17,24,39,.12); overflow:hidden;
+}
+.profile-menu{position:relative}
+.profile-menu:hover .dropdown{display:block}
+.dropdown a,.dropdown form button{
+  display:block; padding:10px 14px; text-decoration:none; color:var(--text); background:none; border:none; width:100%; text-align:right; cursor:pointer;
+}
+.dropdown a:hover,.dropdown form button:hover{background:#f3f4f6}
+
+.timer-card{
+  background:var(--soft-danger);
+  border:1px solid #ffd5da;
+  color:var(--danger);
+  padding:14px 18px; border-radius:16px; font-weight:700; display:flex; gap:10px; align-items:center;
+}
+
+/* شريط التقدّم (Stepper) */
+.question-progress{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:20px; padding:14px;
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  box-shadow:0 12px 32px rgba(17,24,39,.06); margin-bottom:14px;
+}
+
+.steps{
+  display:flex; align-items:center; gap:10px; overflow-x:auto; padding-bottom:4px;
+  scrollbar-width:thin;
+}
+.step{
+  position:relative;
+  min-width:44px; height:44px; border-radius:999px;
+  border:1px solid #dbeafe; background:#eaf4ff; color:#3b82f6;
+  display:grid; place-items:center; font-weight:700; cursor:pointer;
+  transition:.2s ease; user-select:none;
+}
+.step:hover{transform:translateY(-1px)}
+.step--active{
+  background:var(--primary); color:#fff; border-color:var(--primary);
+  box-shadow:0 10px 24px rgba(37,99,235,.35);
+}
+.step--upcoming{opacity:.55; color:#9ca3af}
+.step--answered::after{
+  content:""; position:absolute; bottom:4px; right:calc(50% - 5px);
+  width:10px; height:10px; border-radius:999px; background:var(--amber);
+  box-shadow:0 0 0 2px #fff;   /* نقطة صفراء تحت الرقم */
+}
+
+/* وسم "السؤال X من N" */
+.counter-chip{
+  background:#f1f5f9; color:#0f172a; border:1px solid var(--border);
+  border-radius:999px; padding:10px 14px; font-weight:700; white-space:nowrap;
+}
+
+/* كرت السؤال */
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:20px;
+  padding:18px; box-shadow:0 12px 32px rgba(17,24,39,.06); margin-bottom:14px;
+}
+
+/* خيارات الإجابة */
+.options{display:grid; gap:10px}
+.choice{
+  display:flex; align-items:center; gap:12px;
+  background:#fff; border:1px solid var(--border); border-radius:16px;
+  padding:14px 16px; cursor:pointer; transition:.2s ease;
+}
+.choice:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(17,24,39,.06)}
+.choice input{display:none}
+.choice .letter{
+  width:34px; height:34px; border-radius:999px; display:grid; place-items:center;
+  background:#eff6ff; color:#2563eb; font-weight:700; border:1px solid #dbeafe;
+}
+.choice:has(input:checked){
+  border-color:#bfdbfe; background:#f8fbff;
+  box-shadow:0 10px 20px rgba(37,99,235,.08);
+}
+.choice:has(input:checked) .letter{
+  background:var(--primary); color:#fff; border-color:var(--primary);
+}
+
+/* أزرار التنقل */
+.btns{display:flex; gap:10px; justify-content:space-between; margin-top:12px}
+.btn{
+  border:1px solid var(--border); background:#fff; color:var(--text); padding:10px 16px;
+  border-radius:12px; cursor:pointer; font-weight:700; transition:.2s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--primary); color:#fff; border-color:var(--primary)}
+.btn-primary:hover{background:var(--primary-600)}
+.btn-success{background:var(--success); color:#fff; border-color:var(--success)}
+
+/* تجاوب */
+@media (max-width:640px){
+  .timer-card{font-size:14px}
+  .step{min-width:40px; height:40px}
+}
