@@ -1,4 +1,5 @@
 ## Exam-Management-System
+
 A simple and practical online **exam management system** built with **PHP** and **MySQL**.
 It provides a student interface for taking exams and a supervisor dashboard for managing questions and settings efficiently.
 ---
@@ -23,7 +24,9 @@ It provides a student interface for taking exams and a supervisor dashboard for 
 ## Technologies Used
 
 **Frontend:** HTML, CSS, JavaScript
+
 **Backend:** PHP
+
 **Database:** MyAQL
 
 ---
@@ -48,6 +51,18 @@ git clone https://github.com/YourUsername/exam-management-system.git
 http://localhost/exam-management-system/
 ```
 
+## 🖼️ Screenshots
+
+### 🔐 Login Page
+![Login Page](screenshots/login.png)
+
+### 📝 Exam Start Page
+![Exam Start](screenshots/start_exam.png)
+
+### ❓ Question Page with Timer
+![Question Page](screenshots/question.png)
+
+---
 
 
 ## 📸 Demo
