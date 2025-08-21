@@ -21,7 +21,7 @@ It provides a student interface for taking exams and a supervisor dashboard for 
     - View all questions and delete unwanted ones.
 ---
 
-##Technologies Used
+## Technologies Used
 
 **Frontend:** HTML, CSS, JavaScript
 
@@ -56,15 +56,11 @@ http://localhost/exam-management-system/
 - Coming soon: Online demo link (via free hosting).  
 - Alternatively, see screenshots above.
 
----
 
-## 🎯 Future Improvements
-- Add supervisor panel to manage users and questions
-- Add multiple exam types (MCQs, true/false, written answers)
-- Display performance reports for students
+
 
 ---
 
 ## 👩‍💻 Author
 Developed by **Manal Bafaraj**  
-[LinkedIn](#https://www.linkedin.com/in/manal-bafaraj-799123264/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BcvpWN6hyR7KD6lgBXjqbCQ%3D%3D) | [GitHub](#)
+[LinkedIn](#) | [GitHub](#)
