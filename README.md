@@ -54,13 +54,25 @@ http://localhost/exam-management-system/
 ## 🖼️ Screenshots
 
 ### 🔐 Login Page
-![Login Page](screenshots/login.png)
+![Login Page](/screenshots/Login%20Page.png)
+
+### 👤 Profile Page
+![Profile](screenshots/Profile.png)
 
 ### 📝 Exam Start Page
-![Exam Start](screenshots/start_exam.png)
+![Exam Start](screenshots/Exam%20Start.png)
 
-### ❓ Question Page with Timer
-![Question Page](screenshots/question.png)
+### ⏳ Exam Question Page with Timer
+![Exam Page](screenshots/Exam%20Page.png)
+![Exam Page 2](screenshots/Exam%20Page2.png)
+
+### 📤 Submit Exam Page
+![Submit Exam](screenshots/Submit%20Exam.png)
+
+### 🛠️ Supervisor Dashboard
+![Supervisor 1](screenshots/Super1.png)
+![Supervisor 2](screenshots/Super2.png)
+![Supervisor 3](screenshots/Super3.png)
 
 ---
 
