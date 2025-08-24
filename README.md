@@ -76,7 +76,5 @@ http://localhost/exam-management-system/
 
 ## 👩‍💻 Author
 Developed by **Manal Bafaraj**  
-[LinkedIn](## 👩‍💻 Author
-Developed by **Manal Bafaraj**  
 [LinkedIn](https://www.linkedin.com/in/manal-bafaraj-799123264/) | [GitHub](#)  
 
